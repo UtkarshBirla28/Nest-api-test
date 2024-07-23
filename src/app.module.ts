@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { UserModule } from './user.module';
-import { PrismaModule } from './prisma.module';
-import {RoleModule} from "./role.module";
+import { UserModule } from './userModels/user.module';
+import { PrismaModule } from './prismaModels/prisma.module';
+import {RoleModule} from "./roleModels/role.module";
 
 @Module({
   imports: [UserModule,PrismaModule,RoleModule],
