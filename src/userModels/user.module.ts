@@ -3,9 +3,14 @@ import { UserService } from './user.service';
 import { UserController } from './user.controller';
 import { PrismaModule } from '../prismaModels/prisma.module';
 import {AuthMiddleware} from "../middleware/auth";
+import { jwtConstants } from './auth-constant';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [PrismaModule],
+  imports: [PrismaModule,JwtModule.register({
+    global: true,
+    secret: jwtConstants.secret,
+  }),],
   providers: [UserService],
   controllers: [UserController],
 })
